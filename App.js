@@ -6,6 +6,10 @@ export default function App() {
     <View
       style={{
         flex: 1,
+      }}>
+      <View
+      style={{
+        flex: 1,
         flexDirection: "row",
       }}>
       <View
@@ -18,6 +22,19 @@ export default function App() {
         style={{
           flex: 1,
           backgroundColor: "blue",
+        }}>
+        </View>
+        </View>
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: "grey",
+        }}>
+      </View>
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: "black",
         }}>
       </View>
     </View>
