@@ -6,10 +6,12 @@ const App = () => {
     <View style={{
       //justifyContent=>baris
       //alignItems=>kolom
-      flex: 1, 
+      flex: 1,
+      marginTop: 300
       }}>
       <View style={{
-        flex:1,justifyContent: 'flex-start', alignItems: 'flex-start',
+        //flex: 1,
+        justifyContent: 'center', alignItems: 'center',
       }}>
       <View style={{
         width: 100, height: 100, backgroundColor: 'red',
@@ -17,7 +19,8 @@ const App = () => {
       </View>  
       </View>
       <View style={{
-        flex: 1, justifyContent: 'flex-end', alignItems: 'flex-end',
+        //flex: 1,
+        justifyContent: 'center', alignItems: 'center',
       }}>
       <View style={{
         width: 100, height: 100, backgroundColor: 'blue',
