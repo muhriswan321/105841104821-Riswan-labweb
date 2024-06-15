@@ -6,25 +6,28 @@ const App = () => {
     <View style={{
       //justifyContent=>baris
       //alignItems=>kolom
-      flex: 1,
-      marginTop: 300
+      marginTop: 400
       }}>
       <View style={{
-        //flex: 1,
-        justifyContent: 'center', alignItems: 'center',
+        flex: 1, justifyContent: 'center', alignItems: 'flex-center', marginLeft: 25
       }}>
       <View style={{
-        width: 100, height: 100, backgroundColor: 'red',
+          width: 145, height: 40, backgroundColor: 'red', borderRadius: 15, justifyContent: 'center'
       }}>
+          <Text style={{
+            fontSize: 20, color: 'white', textAlign: 'center', fontWeight: 'bold'
+          }}>Login</Text>
       </View>  
       </View>
       <View style={{
-        //flex: 1,
-        justifyContent: 'center', alignItems: 'center',
+        flex: 1, justifyContent: 'center', alignItems: 'flex-end', marginRight: 25
       }}>
       <View style={{
-        width: 100, height: 100, backgroundColor: 'blue',
+        width: 145, height: 40, backgroundColor: 'blue', borderRadius: 15, justifyContent: 'center'
       }}>
+          <Text style={{
+            fontSize: 20, color: 'white', textAlign: 'center', fontWeight: 'bold'
+          }}>Sing Up</Text>
       </View>
       </View>
     </View>
