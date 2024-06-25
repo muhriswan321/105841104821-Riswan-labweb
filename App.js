@@ -1,28 +1,22 @@
 import { StyleSheet, Text, View, TextInput } from 'react-native'
 import React from 'react'
 
-const ButtonCostum = ({ text, color }) => {
+const TextInputCostum = ({ placeholder, color, typeKeybooard }) => {
   return (
-    <View style={{
-      backgroundColor: color,
+    <TextInput
+    placeholder= {placeholder}
+    keyboardType= {typeKeybooard}
+    style={{
       width: 250,
-      height: 100,
-      borderRadius: 20,
-      justifyContent: 'center',
-      marginBottom: 10
-    }}>
-      <Text style={{
-        textAlign: 'center',
-        color: 'white',
-        fontSize: 30,
-        fontWeight: 'bold',
-      }}>
-        {text}
-      </Text>
-    </View>
+      height: 50,
+      borderColor: color,
+      borderWidth: 1,
+      borderRadius: 15,
+      marginBottom: 10,
+      paddingLeft: 15
+    }}></TextInput>
   )
 }
-
 const App = () => {
   return (
     <View style={{
@@ -30,9 +24,9 @@ const App = () => {
       justifyContent: 'center',
       alignItems: 'center',
     }}>
-      <ButtonCostum text= "LOGIN" color= "red" />
-      <ButtonCostum text= "LOGUOT" color= "green" />
-      <ButtonCostum text= "REGIS" color= "black" />
+      <TextInputCostum placeholder="Username" color="black" />
+      <TextInputCostum placeholder="Password" color="black" />
+      <TextInputCostum placeholder="Gmail" color="black" />
     </View>
   )
 }
