@@ -1,33 +1,35 @@
-import { StyleSheet, Text, View, TextInput } from 'react-native'
-import React from 'react'
+// Rest of the import statements
+import { useFonts } from 'expo-font';
+import { Text, View } from 'react-native';
 
-const TextInputCostum = ({ placeholder, color, typeKeybooard }) => {
-  return (
-    <TextInput
-    placeholder= {placeholder}
-    keyboardType= {typeKeybooard}
-    style={{
-      width: 250,
-      height: 50,
-      borderColor: color,
-      borderWidth: 1,
-      borderRadius: 15,
-      marginBottom: 10,
-      paddingLeft: 15
-    }}></TextInput>
-  )
-}
-const App = () => {
+export default function App() {
+  const [dapatFont] = useFonts({
+    'MetroBlack': require('./assets/fonts/Metropolis-Black.otf'),
+    'MetroBold': require('./assets/fonts/Metropolis-Bold.otf'),
+    'MetroLight': require('./assets/fonts/Metropolis-Light.otf'),
+    'MetroSemiBold': require('./assets/fonts/Metropolis-SemiBold.otf'),
+  });
+  if (!dapatFont) {
+    return <Text> Font tidak ditemukan ... </Text>
+  }
   return (
     <View style={{
       flex: 1,
       justifyContent: 'center',
-      alignItems: 'center',
+      alignItems: 'center'
     }}>
-      <TextInputCostum placeholder="Username" color="black" />
-      <TextInputCostum placeholder="Password" color="black" />
-      <TextInputCostum placeholder="Gmail" color="black" />
+      <Text style={{
+        fontFamily: 'MetroBlack'
+      }}>Font Metropolis Black</Text>
+      <Text style={{
+        fontFamily: 'MetroBold'
+      }}>Font Metropolis Bold</Text>
+      <Text style={{
+        fontFamily: 'MetroLight'
+      }}>Font Metropolis Light</Text>
+      <Text style={{
+        fontFamily: 'MetroSemiBold'
+      }}>Font Metropolis SemiBold</Text>
     </View>
-  )
+  );
 }
-export default App
