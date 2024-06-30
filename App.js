@@ -54,14 +54,14 @@ const TextInputCustom = ({ placeholder, typekeyboard }) => {
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        <Text style={styles.title}>Login</Text>
+        <Text style={styles.title}>Forgot Password</Text>
         <View style={styles.form}>
           <TextInputCustom placeholder= "Email" typekeyboard= "email-add" />
-          <TextInputCustom placeholder="Password" typekeyboard="default" />
+          {/* <TextInputCustom placeholder="Password" typekeyboard="default" /> */}
           <View style={{ flexDirection: 'row', justifyContent: 'flex-end', marginBottom: 10 }}>
-            <Text style={{ fontSize: 15, textAlign: 'flex-end', marginLeft: 130, fontFamily: 'MetroMedium' }}>Forgot your password?</Text>
+            <Text style={{ fontSize: 12, textAlign: 'center', fontFamily: 'MetroMedium' }}>Not a valid email address. Should be your@email.com</Text>
           </View>
-          <ButtonCustom text= "LOGIN" color= "red" />
+          <ButtonCustom text= "SEND" color= "red" />
         </View>
       </View>
       <Text style={{ fontSize: 15, textAlign: 'center', fontFamily: 'MetroMedium' }}>Or login with social account</Text>
