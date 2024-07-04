@@ -1,120 +1,39 @@
-import { StyleSheet, View, Text, TextInput, Image } from 'react-native';
-import React from 'react';
-import { useFonts } from 'expo-font';
+// In App.js in a new project
 
-const ButtonCustom = ({ text, color }) => {
+import * as React from 'react';
+import { View, Text, Button } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import LoginPage from './LoginPage';
+import Singup from './SingupPage'
+import ForgetPassword from './ForgetPasswordPage';
+
+function HomeScreen({ navigation }) {
   return (
-    <View style={{
-      backgroundColor: color,
-      width: '100%',
-      height: 50,
-      borderRadius: 25,
-      justifyContent: 'center',
-      marginTop: 20,
-    }}>
-      <Text style={{
-        textAlign: 'center',
-        color: 'white',
-        fontSize: 18,
-        // fontWeight: 'bold',
-        fontFamily: 'MetroMedium'
-      }}>
-        {text}
-      </Text>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Home Screen</Text>
+      <Button title="Ke Halaman Login" onPress={() => navigation.navigate('Login')} />
+      <Button title="ke Halaman Singup" onPress={() => navigation.navigate('Singup')} />
+      <Button title="Ke Halaman ForgetPassword" onPress={() => navigation.navigate('ForgetPassword')} />
+      
     </View>
-  )
+  );
 }
 
-const TextInputCustom = ({ placeholder, typekeyboard }) => {
-  return (
-    <TextInput
-      placeholder={placeholder}
-      keyboardType={typekeyboard}
-      style={{
-        width: '100%',
-        height: 50, 
-        borderColor: 'black',
-        borderWidth: 1,
-        borderRadius: 10,
-        marginBottom: 8,
-        paddingLeft: 10,
-        fontSize: 15,
-        fontFamily: 'MetroMedium'
-      }}
-    />
-  )
-}
+const Stack = createNativeStackNavigator();
 
-  const App = () => {
-    const [dapatFont] = useFonts({
-      'MetroBold': require('./assets/fonts/Metropolis-Bold.otf'),
-      'MetroMedium': require('./assets/fonts/Metropolis-Medium.otf')
-    });
-  
+function App() {
   return (
-    <View style={styles.container}>
-      <View style={styles.content}>
-        <Text style={styles.title}>Forgot Password</Text>
-        <View style={styles.form}>
-          <TextInputCustom placeholder= "Email" typekeyboard= "email-add" />
-          {/* <TextInputCustom placeholder="Password" typekeyboard="default" /> */}
-          <View style={{ flexDirection: 'row', justifyContent: 'flex-end', marginBottom: 10 }}>
-            <Text style={{ fontSize: 12, textAlign: 'center', fontFamily: 'MetroMedium' }}>Not a valid email address. Should be your@email.com</Text>
-          </View>
-          <ButtonCustom text= "SEND" color= "red" />
-        </View>
-      </View>
-      <Text style={{ fontSize: 15, textAlign: 'center', fontFamily: 'MetroMedium' }}>Or login with social account</Text>
-      <View style={ styles.logoRow}>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Login" component={LoginPage} />
+        <Stack.Screen name="Singup" component={Singup} />
+        <Stack.Screen name="ForgetPassword" component={ForgetPassword} />
         
-        <View style={styles.logoContainer}>
-          <Image source={ require('./assets/logo-google.jpeg')} style={styles.logo} />
-        </View>
-        <View style={styles.logoContainer}>
-          <Image source={require('./assets/logo-facebook.jpeg')} style={styles.logo} />
-        </View>
-      </View>
-    </View>
-  )
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
 
 export default App;
-
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#F0F8FF',
-      padding: 20,
-    },
-    content: {
-      flex: 1,
-      justifyContent: 'center',
-      // alignItems: 'center',
-    },
-    title: {
-      fontSize: 32,
-      //fontWeight: 'bold',
-      marginBottom: 40,
-      fontFamily: 'MetroBold'
-    },
-    form: {
-      width: '100%',
-      alignItems: 'center',
-    },
-    logoRow: {
-      flexDirection: 'row',
-      justifyContent: 'center',
-      alignItems: 'center',
-      paddingVertical: 20,
-    },
-    logoContainer: {
-      backgroundColor: 'white',
-      borderRadius: 15,
-      padding: 10,
-      marginHorizontal: 10,
-    },
-    logo: {
-      width: 30,
-      height: 30,
-    },
-  });
