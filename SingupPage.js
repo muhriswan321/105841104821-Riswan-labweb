@@ -45,7 +45,7 @@ const TextInputCustom = ({ placeholder, typekeyboard }) => {
   )
 }
 
-  const App = () => {
+  const App = ({navigation}) => {
     const [dapatFont] = useFonts({
       'MetroBold': require('./assets/fonts/Metropolis-Bold.otf'),
       'MetroMedium': require('./assets/fonts/Metropolis-Medium.otf')
@@ -59,13 +59,21 @@ const TextInputCustom = ({ placeholder, typekeyboard }) => {
           <TextInputCustom placeholder= "Username" typekeyboard= "email-add" />
           <TextInputCustom placeholder= "Email" typekeyboard= "email-add" />
           <TextInputCustom placeholder="Password" typekeyboard="default" />
-          <View style={{ flexDirection: 'row', justifyContent: 'flex-end', marginBottom: 10 }}>
-            <Text style={{ fontSize: 15, textAlign: 'flex-end', marginLeft: 130, fontFamily: 'MetroMedium' }}>Already have an account?</Text>
+          <View style={{
+            flexDirection: 'row',
+            justifyContent: 'flex-end',
+            marginBottom: 10
+          }}>
+            <Text style={styles.logintext} onPress={() => navigation.navigate('Login')}>Already have an account?</Text>
           </View>
           <ButtonCustom text= "SING UP" color= "red" />
         </View>
       </View>
-      <Text style={{ fontSize: 15, textAlign: 'center', fontFamily: 'MetroMedium' }}>Or login with social account</Text>
+      <Text style={{
+        fontSize: 15,
+        textAlign: 'center',
+        fontFamily: 'MetroMedium'
+      }}>Or login with social account</Text>
       <View style={ styles.logoRow}>
         
         <View style={styles.logoContainer}>
@@ -117,5 +125,10 @@ export default App;
     logo: {
       width: 30,
       height: 30,
+    },
+    logintext: {
+      fontSize: 15,
+      textAlign: 'flex-end',
+      fontFamily: 'MetroMedium'
     },
   });

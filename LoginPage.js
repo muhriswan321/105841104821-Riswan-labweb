@@ -45,7 +45,7 @@ const TextInputCustom = ({ placeholder, typekeyboard }) => {
   )
 }
 
-  const App = () => {
+  const App = ({navigation}) => {
     const [dapatFont] = useFonts({
       'MetroBold': require('./assets/fonts/Metropolis-Bold.otf'),
       'MetroMedium': require('./assets/fonts/Metropolis-Medium.otf')
@@ -58,13 +58,21 @@ const TextInputCustom = ({ placeholder, typekeyboard }) => {
         <View style={styles.form}>
           <TextInputCustom placeholder= "Email" typekeyboard= "email-add" />
           <TextInputCustom placeholder="Password" typekeyboard="default" />
-          <View style={{ flexDirection: 'row', justifyContent: 'flex-end', marginBottom: 10 }}>
-            <Text style={{ fontSize: 15, textAlign: 'flex-end', marginLeft: 130, fontFamily: 'MetroMedium' }}>Forgot your password?</Text>
+          <View style={{
+            flexDirection: 'row',
+            justifyContent: 'flex-end',
+            marginBottom: 10
+          }}>
+            <Text style={styles.forgetPasswordtext} onPress={() => navigation.navigate('ForgetPassword')}>Forgot your password?</Text>
           </View>
           <ButtonCustom text= "LOGIN" color= "red" />
         </View>
       </View>
-      <Text style={{ fontSize: 15, textAlign: 'center', fontFamily: 'MetroMedium' }}>Or login with social account</Text>
+      <Text style={{
+        fontSize: 15,
+        textAlign: 'center',
+        fontFamily: 'MetroMedium'
+      }}>Or login with social account</Text>
       <View style={ styles.logoRow}>
         
         <View style={styles.logoContainer}>
